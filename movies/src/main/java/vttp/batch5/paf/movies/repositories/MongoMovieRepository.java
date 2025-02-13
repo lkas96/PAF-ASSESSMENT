@@ -55,7 +55,7 @@ public class MongoMovieRepository {
     //inserting to db one record duh
     Document insertedDoc = template.insert(toInsert, imdb_collection);
 
-    System.out.printf(">>> after insert: %s\n", insertedDoc.toJson());
+    // System.out.printf(">>> after insert: %s\n", insertedDoc.toJson());
 
 }
 

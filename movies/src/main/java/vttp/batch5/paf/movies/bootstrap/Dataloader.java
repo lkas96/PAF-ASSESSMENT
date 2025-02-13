@@ -144,7 +144,7 @@ public class Dataloader implements CommandLineRunner {
               imdb_votes, poster_path);
 
           list.add(i);
-          System.out.println(i.toString());
+          // System.out.println(i.toString());
 
           // why are the values all null, its going through the goddamn lines but
           // everything is null bruh
@@ -195,15 +195,15 @@ public class Dataloader implements CommandLineRunner {
         // skip checks/transactionals/rollback just add the data and go
 
         // how to loop every 25 omg just add one by one no
-        System.out.println("Now inserting a record to MYSQL");
-        System.out.println(filtered.get(i).toString());
+        // System.out.println("Now inserting a record to MYSQL");
+        // System.out.println(filtered.get(i).toString());
         sqlRepo.insertARecord(filtered.get(i)); // insert into mysql
-        System.out.println("Done adding to MYSQL");
+        // System.out.println("Done adding to MYSQL");
 
         // now insert into mongodb
-        System.out.println("Now inserting a record into Mongo");
+        // System.out.println("Now inserting a record into Mongo");
         mongoRepo.InsertOneDocument(filtered.get(i));
-        System.out.println("Done adding to Mongo");
+        // System.out.println("Done adding to Mongo");
 
       }
       System.out.println();
