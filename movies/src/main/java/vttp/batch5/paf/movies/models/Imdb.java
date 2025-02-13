@@ -8,6 +8,7 @@ public class Imdb {
     private String status;
     private String release_date;
     private float revenue;
+    private int runtime;
     private float budget;
     private String imdb_id;
     private String original_language;
@@ -22,14 +23,7 @@ public class Imdb {
     private int imdb_votes;
     private String poster_path;
 
-    public Imdb(String title2, int vote_average2, int vote_count2, String status2, String release_date2, int revenue2,
-            int runtime, int budget2, String imdb_id2, String original_language2, String overview2, int popularity2,
-            String tagline2, String genres2, String spoken_languages2, String casts2, String director2,
-            int imdb_rating2, int imdb_votes2, String poster_path2) {
-
-    }
-
-    public Imdb(String title, float vote_average, int vote_count, String status, String release_date, float revenue,
+    public Imdb(String title, float vote_average, int vote_count, String status, String release_date, float revenue, int runtime,
             float budget, String imdb_id, String original_language, String overview, int popularity, String tagline,
             String genres, String spoken_languages, String casts, String director, float imdb_rating, int imdb_votes,
             String poster_path) {
@@ -39,6 +33,7 @@ public class Imdb {
         this.status = status;
         this.release_date = release_date;
         this.revenue = revenue;
+        this.runtime = runtime;
         this.budget = budget;
         this.imdb_id = imdb_id;
         this.original_language = original_language;
@@ -55,7 +50,7 @@ public class Imdb {
     }
 
     // custom for float numbers
-    public Imdb(String title, int vote_average, int vote_count, String status, String release_date, int revenue,
+    public Imdb(String title, int vote_average, int vote_count, String status, String release_date, int revenue, int runtime,
             int budget, String imdb_id, String original_language, String overview, int popularity, String tagline,
             String genres, String spoken_languages, String casts, String director, int imdb_rating, int imdb_votes,
             String poster_path) {
@@ -65,6 +60,7 @@ public class Imdb {
         this.status = status;
         this.release_date = release_date;
         this.revenue = revenue;
+        this.runtime = runtime;
         this.budget = budget;
         this.imdb_id = imdb_id;
         this.original_language = original_language;

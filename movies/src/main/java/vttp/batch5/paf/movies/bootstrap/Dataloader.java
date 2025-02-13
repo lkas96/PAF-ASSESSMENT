@@ -122,15 +122,17 @@ public class Dataloader implements CommandLineRunner {
           String poster_path = jsonObject.getString("poster_path", "");
 
 
-
-
-
-
           // Instantiate IMDb object wii all the 20 fields
           Imdb i = new Imdb(title, vote_average, vote_count, status, release_date, revenue, runtime, budget, imdb_id, original_language, overview, popularity, tagline, genres, spoken_languages, casts, director, imdb_rating, imdb_votes, poster_path);
           
           list.add(i);
-          // System.out.println(i.toString());
+          System.out.println(i.toString());
+
+          //why are the values all null, its going through the goddamn lines but everything is null bruh
+          //okay fixed it lmao some error in the model
+          //also added weird constrcutor that has fields2 instead of all
+          //now seems to be printing fine, okay i gotta go poop now
+          
 
 
         }
@@ -141,7 +143,13 @@ public class Dataloader implements CommandLineRunner {
        
 
 
-       //now time for the 
+       //now time for the date processing filtering.
+       ArrayList<Imdb> filtered = new ArrayList<>();
+
+       for (int i = 0; i < list.size(); i++){
+        //loops through all the array then process the date shit thing 2018 minimum
+        
+       }
 
     } catch (Exception e) {
       e.printStackTrace();
