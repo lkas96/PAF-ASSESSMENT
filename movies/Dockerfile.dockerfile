@@ -4,11 +4,12 @@ ARG COMPILE_DIR=/code_folder
 
 WORKDIR ${COMPILE_DIR}
 
-COPY pom.xml .
-COPY mvnw .
-COPY mvnw.cmd .
-COPY src src
-COPY .mvn .mvn
+COPY movies/pom.xml .
+COPY movies/mvnw .
+COPY movies/mvnw.cmd .
+COPY movies/src src
+COPY movies/.mvn .mvn
+COPY data .
 
 RUN chmod a+x ./mvnw
 RUN ./mvnw clean package -Dmaven.skip.tests=true
