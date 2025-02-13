@@ -2,6 +2,7 @@ package vttp.batch5.paf.movies.models;
 
 public class Imdb {
 
+    private String imdb_id;
     private String title;
     private float vote_average;
     private int vote_count;
@@ -66,8 +67,10 @@ public class Imdb {
         this.runtime = runtime;
     }
 
-    public Imdb(String title, float vote_average, int vote_count, String release_date, float revenue, float budget,
+    public Imdb(String imdb_id, String title, float vote_average, int vote_count, String release_date, float revenue,
+            float budget,
             int runtime) {
+        this.imdb_id = imdb_id;
         this.title = title;
         this.vote_average = vote_average;
         this.vote_count = vote_count;
@@ -81,9 +84,10 @@ public class Imdb {
 
     }
 
-    public Imdb(String title, String vote_average, String vote_count, String release_date, String revenue,
+    public Imdb(String imdb_id, String title, String vote_average, String vote_count, String release_date, String revenue,
             String budget,
             String runtime) {
+                this.imdb_id = imdb_id;
         this.title = title;
         this.vote_average = Float.parseFloat(vote_average);
         this.vote_count = Integer.parseInt(vote_count);
@@ -95,9 +99,11 @@ public class Imdb {
 
     @Override
     public String toString() {
-        return "Imdb [title=" + title + ", vote_average=" + vote_average + ", vote_count=" + vote_count
-                + ", release_date=" + release_date + ", revenue=" + revenue + ", budget=" + budget + ", runtime="
-                + runtime + "]";
+        return "Imdb [imdb_id=" + imdb_id + ", title=" + title + ", vote_average=" + vote_average + ", vote_count="
+                + vote_count + ", release_date=" + release_date + ", revenue=" + revenue + ", budget=" + budget
+                + ", runtime=" + runtime + "]";
     }
+
+
 
 }
