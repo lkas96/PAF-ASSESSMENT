@@ -10,6 +10,6 @@ create table imdb (
     revenue decimal(15,2) default 1000000,
     budget decimal(15,2) default 1000000,
     runtime int default 90,
-
-    constraint PK_imdbid PRIMARY KEY (imdb_id)
+    
+    PRIMARY KEY (imdb_id)
 );
