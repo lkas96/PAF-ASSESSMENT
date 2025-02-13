@@ -31,3 +31,4 @@ ENV SERVER_PORT=3000
 EXPOSE ${SERVER_PORT}
 
 ENTRYPOINT ["java", "-jar", "Movies.jar"]
+# moved to root test
