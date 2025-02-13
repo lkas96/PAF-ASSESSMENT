@@ -1,8 +1,16 @@
 package vttp.batch5.paf.movies.repositories;
 
+import java.util.List;
+
 import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.aggregation.Aggregation;
+import org.springframework.data.mongodb.core.aggregation.AggregationResults;
+import org.springframework.data.mongodb.core.aggregation.GroupOperation;
+import org.springframework.data.mongodb.core.aggregation.SortOperation;
 import org.springframework.stereotype.Repository;
 
 import vttp.batch5.paf.movies.models.Imdb;
@@ -71,11 +79,38 @@ public class MongoMovieRepository {
 
  }
 
+
+
+
  // TODO: Task 3
  // Write the native Mongo query you implement in the method in the comments
  //
  //    native MongoDB query here
  //
+//  hmmm something liek that
+//  select how many directors to see/ or how many entries to see basically.
 
+//  db.imdb.aggregate([
+//     {
+//         $group: {
+//             _id: "$directors",
+//             count: {$sum: 1},
+//             imdb_id : {$push: "$_id"}            //this will give us the number of movies per director
+//         }
+//     }
+// ])
 
+ public List<Document> getDirectorsByCount() {
+    GroupOperation groupByDirector = Aggregation.group("directors").push("imdb_id").as("List_Movie_Ids").count().as("Number_Of_Movies");
+
+    SortOperation sortByCount = Aggregation.sort(
+        Sort.by(Direction.DESC, "count"));
+    
+
+    Aggregation pipeline = Aggregation.newAggregation(groupByDirector, sortByCount);
+
+    AggregationResults<Document> results = template.aggregate(pipeline, "movies", Document.class);
+
+    return null;
+}
 }
