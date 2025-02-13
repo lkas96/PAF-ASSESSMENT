@@ -76,6 +76,16 @@ public class Imdb {
         this.poster_path = poster_path;
     }
 
+    //ADDED MISSING
+    public int getRuntime() {
+        return runtime;
+    }
+
+    public void setRuntime(int runtime) {
+        this.runtime = runtime;
+    }
+
+
     public String getTitle() {
         return title;
     }
@@ -231,12 +241,14 @@ public class Imdb {
     @Override
     public String toString() {
         return "Imdb [title=" + title + ", vote_average=" + vote_average + ", vote_count=" + vote_count + ", status="
-                + status + ", release_date=" + release_date + ", revenue=" + revenue + ", budget=" + budget
-                + ", imdb_id=" + imdb_id + ", original_language=" + original_language + ", overview=" + overview
-                + ", popularity=" + popularity + ", tagline=" + tagline + ", genres=" + genres + ", spoken_languages="
-                + spoken_languages + ", casts=" + casts + ", director=" + director + ", imdb_rating=" + imdb_rating
-                + ", imdb_votes=" + imdb_votes + ", poster_path=" + poster_path + "]";
+                + status + ", release_date=" + release_date + ", revenue=" + revenue + ", runtime=" + runtime
+                + ", budget=" + budget + ", imdb_id=" + imdb_id + ", original_language=" + original_language
+                + ", overview=" + overview + ", popularity=" + popularity + ", tagline=" + tagline + ", genres="
+                + genres + ", spoken_languages=" + spoken_languages + ", casts=" + casts + ", director=" + director
+                + ", imdb_rating=" + imdb_rating + ", imdb_votes=" + imdb_votes + ", poster_path=" + poster_path + "]";
     }
+
+
 
     
 }
