@@ -94,40 +94,29 @@ public class Dataloader implements CommandLineRunner {
           // System.out.println(counter);
 
           // get the values and error handling
-          String title = jsonObject.getString("title", "title");
+          String title = jsonObject.getString("title");
 
-          int vote_average = jsonObject.containsKey("vote_average") && jsonObject.isNull("vote_average")
-              ? jsonObject.getInt("vote_average")
-              : 0;
+          int vote_average = jsonObject.getInt("vote_average");
 
-          int vote_count = jsonObject.containsKey("vote_count") && jsonObject.isNull("vote_count")
-              ? jsonObject.getInt("vote_count")
-              : 0;
+          int vote_count = jsonObject.getInt("vote_count");
 
-          String status = jsonObject.getString("status", "no status");
+          String status = jsonObject.getString("status");
 
-          String release_date = jsonObject.getString("release_date", "0000-00-00");
+          String release_date = jsonObject.getString("release_date");
 
-          int revenue = jsonObject.containsKey("revenue") && !jsonObject.isNull("revenue")
-              ? jsonObject.getInt("revenue")
-              : 0;
+          int revenue = jsonObject.getInt("revenue");
 
-          int runtime = jsonObject.containsKey("runtime") && !jsonObject.isNull("runtime")
-              ? jsonObject.getInt("runtime")
-              : 0;
+          int runtime = jsonObject.getInt("runtime");
 
-          int budget = jsonObject.containsKey("budget") && !jsonObject.isNull("budget") ? jsonObject.getInt("budget")
-              : 0;
+          int budget = jsonObject.getInt("budget");
 
           String imdb_id = jsonObject.getString("imdb_id");
 
-          String original_language = jsonObject.getString("original_language", "");
+          String original_language = jsonObject.getString("original_language");
 
-          String overview = jsonObject.getString("overview", "");
+          String overview = jsonObject.getString("overview");
 
-          int popularity = jsonObject.containsKey("popularity") && !jsonObject.isNull("popularity")
-              ? jsonObject.getInt("popularity")
-              : 0;
+          int popularity = jsonObject.getInt("popularity");
 
           String tagline = jsonObject.getString("tagline", "");
 
@@ -155,7 +144,7 @@ public class Dataloader implements CommandLineRunner {
               imdb_votes, poster_path);
 
           list.add(i);
-          // System.out.println(i.toString());
+          System.out.println(i.toString());
 
           // why are the values all null, its going through the goddamn lines but
           // everything is null bruh
