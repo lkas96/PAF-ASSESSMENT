@@ -51,60 +51,78 @@ public class Dataloader implements CommandLineRunner {
   @Override
   public void run(String... args) throws Exception {
 
+    //SKIP TASK 2 
+    //DONT KNOW HOW TO IMPORT, KEEP GETTING ERROR WHEN PROCESSING JSON FILE.
+    //ONLY FIRST 10 LINES CAN BE READ/INSTANTIATED
+    //Will just manually import via whatever db GUI
+    //jakarta.json.stream.JsonParsingException: Unexpected char 0 at (line no=1, column no=1406, offset=1405)
+
+
     //check if database/collection for mongo and sql exists
 
-    // can read and print the zipfile fine
-    ZipFile zipFile = new ZipFile("..\\data\\movies_post_2010.zip");
-    ZipEntry entry = zipFile.getEntry("movies_post_2010.json");
-    InputStream is = zipFile.getInputStream(entry);
-    byte[] data = new byte[is.available()];
-    is.read(data);
+    // // can read and print the zipfile fine
+    // ZipFile zipFile = new ZipFile("..\\data\\movies_post_2010.zip");
+    // ZipEntry entry = zipFile.getEntry("movies_post_2010.json");
+    // InputStream is = zipFile.getInputStream(entry);
+    // byte[] data = new byte[is.available()];
+    // is.read(data);
 
-    String jsonDump = new String(data);
+    // String jsonDump = new String(data);
 
-    // System.out.println(jsonDump);
+    // // System.out.println(jsonDump);
 
-    //Add to the list when instantiated as an object
-    ArrayList<Imdb> list = new ArrayList<>();
+    // //Add to the list when instantiated as an object
+    // ArrayList<Imdb> list = new ArrayList<>();
 
-    BufferedReader reader = new BufferedReader(new StringReader(jsonDump));
+    // BufferedReader reader = new BufferedReader(new StringReader(jsonDump));
 
-        String line;
+    //     String line;
         
-        try {
-            while ((line = reader.readLine()) != null) {
-                if (!line.trim().isEmpty()) { // Ignore empty lines
-                    JsonReader jsonReader = Json.createReader(new StringReader(line));
-                    JsonObject jsonObject = jsonReader.readObject();
-                    // System.out.println(jsonObject);
-                    // System.out.println(counter);
+    //     try {
+    //         while ((line = reader.readLine()) != null) {
+    //             if (!line.trim().isEmpty()) { // Ignore empty lines
+    //                 JsonReader jsonReader = Json.createReader(new StringReader(line));
+    //                 JsonObject jsonObject = jsonReader.readObject();
+    //                 // System.out.println(jsonObject);
+    //                 // System.out.println(counter);
                     
-                    String title = jsonObject.getString("title");
-                    Integer vote_average = jsonObject.getInt("vote_average");
-                    Integer vote_count = jsonObject.getInt("vote_count");
-                    String release_date = jsonObject.getString("release_date");
-                    Integer revenue = jsonObject.getInt("revenue");
-                    Integer budget = jsonObject.getInt("budget");
-                    Integer runtime = jsonObject.getInt("runtime");
+    //                 String title = jsonObject.getString("title");
+    //                 Integer vote_average = jsonObject.getInt("vote_average");
+    //                 Integer vote_count = jsonObject.getInt("vote_count");
+    //                 String release_date = jsonObject.getString("release_date");
+    //                 Integer revenue = jsonObject.getInt("revenue");
+    //                 Integer budget = jsonObject.getInt("budget");
+    //                 Integer runtime = jsonObject.getInt("runtime");
 
-                    //omg no time to figure it out. in model add another constructor, takes in all string, will parse whatever
-                    //instantiate the imdb object
-                    Imdb i = new Imdb(title, vote_average, vote_count, release_date, revenue, budget, runtime);
-                    list.add(i);
+    //                 //omg no time to figure it out. in model add another constructor, takes in all string, will parse whatever
+    //                 //instantiate the imdb object
+    //                 Imdb i = new Imdb(title, vote_average, vote_count, release_date, revenue, budget, runtime);
+    //                 list.add(i);
                     
-                    System.out.println(i.toString());
+    //                 System.out.println(i.toString());
 
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    //             }
+    //         }
+    //     } catch (Exception e) {
+    //         e.printStackTrace();
+    //     }
       
-      // json.readLine();
-      //test output
-      // System.out.println(jsonDump);
+    //   // json.readLine();
+    //   //test output
+    //   // System.out.println(jsonDump);
 
-      zipFile.close();
+    //   zipFile.close();
+
+
+
+
+
+
+
+    //DO MANUAL IMPORT FIRST
+    //IMPORT ALL TO MONGO, THEN QUERY EXPORT THE FIELDS I WANT
+    //THEN USE THAT DATA IMPORT TO MYSQL INSTEAD
+    //PROCESS THE DATA INSTEAD
     }
 
 
